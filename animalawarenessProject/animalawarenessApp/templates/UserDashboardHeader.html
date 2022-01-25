@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#"></a>
+                    <span class="icon"><img src="{% static 'animalawarenessApp/images/logo1.png' %}" style="height:60px;"></span>
+                    <!--<span class="title"><h2>Brand Name</h2></span>-->
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userdashboard' %}">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title dashboard"><h2>Home</h2></span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'usersearchview' %}">
+                    <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <span class="title modifications"><h2>Search</h2></span>
+                    <!--<ul>
+                        <li>
+                            <a href="Dashboard_Admin_ResetPwd.php">
+                                <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                <span class="subtitle"><h3>Petshop</h3></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Dashboard_Admin_ResetPwd.php">
+                                <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                <span class="subtitle"><h3>Veterinarian</h3></span>
+                            </a>
+                        </li>
+                    </ul>-->
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userprogramview' %}">
+                    <span class="icon"><i class="fa fa-paw" aria-hidden="true"></i></span>
+                    <span class="title pwdmenu"><h2>Program</h2></span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userorganisationview' %}">
+                    <span class="icon"><i class="fa fa-users" aria-hidden="true" style="font-size:25px;"></i></span>
+                    <span class="title pwdmenu"><h2>Organisations</h2></span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userdonationview' %}">
+                    <span class="icon"><i class="fa fa-inr" aria-hidden="true" style="font-size:25px;"></i></span>
+                    <span class="title pwdmenu"><h2>Donation</h2></span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userfeedbackview' %}">
+                    <span class="icon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                    <span class="title pwdmenu"><h2>Feedback</h2></span>
+                </a>
+            </li>
+            <li>
+            <a href="#" id="logout" >
+                <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                <span class="title logout"><h2>Logout</h2></span>
+            </li> 
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle" onclick="toggleMenu();"></div>
+            <!--<div class="search">
+                <label>
+                    <input type="text" placeholder="Search here"><i class="fa fa-search" aria-hidden="true"></i>
+                </label>
+            </div>-->										
+        </div>
+    </div>
+</div>

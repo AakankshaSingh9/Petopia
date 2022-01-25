@@ -1,0 +1,298 @@
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+body
+{
+	overflow-x:hidden;
+}
+.container-fluid
+{
+	/* position:relative; */
+	width:100%;
+    padding:0;
+    margin:0;
+}
+.navigation
+{
+	position:fixed;
+	width:300px;
+	height:100%;
+	background:#1f7a1f/*#7e2f9d*/;
+	transition:0.5s;
+	overflow:hidden;
+}
+
+.navigation.active
+{
+	width:60px;
+}
+.navigation ul
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}
+.navigation ul li
+{
+	position:relative;
+	width:100%;
+	list-style-type:none;
+}
+.navigation ul li:hover
+{
+	background: #9dc638;
+}
+.navigation ul li:nth-child(1)
+{
+	background:transparent;
+	margin-bottom:20px;
+}
+.navigation ul li:nth-child(1):hover
+{
+	background:transparent;
+}
+.navigation ul li a
+{
+	position:relative;
+	display:block;
+	width:100%;
+	display:flex;
+	text-decoration:none;
+	color:#fff;
+	font-size:16px;
+}
+/*
+.navigation ul li a:hover{
+	color:#fff;
+}
+*/
+.navigation ul li a .icon img{
+	height:60px;
+	width:60px;
+}
+.navigation ul li a .icon
+{
+	position:relative;
+	display:block;
+	min-width:60px;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+}
+.navigation ul li a .icon .fa
+{
+	color:#fff;
+	font-size:24px;
+}
+.navigation ul li a .title
+{
+	position:relative;
+	display:block;
+	padding:0 10px;
+	height:60px;
+	line-height:60px;
+	white-space:nowrap;
+}
+
+
+
+/*tabs*/
+
+.main
+{
+	position:absolute;
+	width: calc(100% - 300px);
+	left:300px;
+	min-height:100vh;
+	background:#f5f5f5;
+	transition:0.5s;
+}
+.main.active
+{
+	width: calc(100% - 60px);
+	left:60px;
+}
+.main .topbar
+{
+	width:100%;
+	background:#fff;
+	height:60px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding:0 10px;
+}
+.toggle
+{
+	position:relative;
+	width:60px;
+	height:60px;
+	cursor:pointer;
+}
+.toggle:before
+{
+	content:'\f0c9';
+	font-family: fontAwesome;
+	position:absolute;
+	width:100%;
+	height:100%;
+	line-height:60px;
+	font-size:24px;
+	text-align:center;
+	color:#111;
+}
+.search
+{
+	position:relative;
+	width:50%;
+}
+.search label
+{
+	position:relative;
+	width:100%;
+}
+.search label input
+{
+	width:100%;
+	height:40px;
+	border-radius:40px;
+	padding:5px 20px;
+	padding-left:35px;
+	outline:none;
+	border  :1px solid rgba(0,0,0,0.2); 
+}
+.search label .fa
+{
+	position:absolute;
+	left:15px;
+	top:4px;
+}
+.user
+{
+	position:relative;
+	min-width:50px;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	overflow:hidden;
+	cursor:pointer;
+}
+.user img
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+.cardBox
+{
+	position:relative;
+	width:100%;
+	padding:20px;
+	display:grid;
+	grid-template-columns:repeat(3,1fr);
+	grid-gap:10px;
+}
+.cardBox .card
+{
+	position:relative;
+	background:#fff;
+	padding:20px;
+	display:flex;
+	justify-content:space-between;
+	cursor:pointer;
+}
+.cardBox .card .numbers
+{
+	position:relative;
+	font-size:2em;
+	font-weight:500;
+}
+.cardBox .card .cardName
+{
+	color:#999;
+}
+.cardBox .card .iconBox
+{
+	font-size:2.5em;
+	color:#1f7a1f;
+}
+
+main {
+  min-width: 320px;
+  max-width: 800px;
+  padding: 50px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #9dc638;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+  display: block;
+}
+#tabs-table-report
+{
+	width:100%;
+}
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+}

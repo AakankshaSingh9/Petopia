@@ -1,0 +1,876 @@
+<html lang="en">
+    {% block content %}
+    {% load static %}
+    
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Petopia</title>
+<!-- logo - https://looka.com/s/74722968-->
+<!-- Stylesheets -->
+<link href="{% static 'animalawarenessApp/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'animalawarenessApp/css/responsive.css'%}" rel="stylesheet">
+
+<!-- Font style links-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		
+<!--<link rel="icon" href="images/favicon.ico" type="image/x-icon">-->
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<style>
+    .bg-column{
+        background-image: url("{% static 'animalawarenessApp/images/about-bg.jpg' %}");
+    }
+    .preloader{
+        background-image:url("{% static 'animalawarenessApp/images/preloader.gif' %}");
+    }
+    .main-footer .footer-top:before{
+        background: url("{% static 'animalawarenessApp/images/animal-image.png' %}");
+    }
+    .service-sidebar .sidebar-appointment .widget-content:before{
+        background: url("{% static 'animalawarenessApp/images/animal-image-2.png' %}");
+    }
+    .slide{
+        background-image:url("{% static 'animalawarenessApp/images/slider-2.jpg' %}");
+    }
+    .testimonial-section {
+        background-image: url("{% static 'animalawarenessApp/images/bg-fixed.jpg' %}");
+    }
+</style>
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+    <!-- .preloader -->
+    <div class="preloader" style="display: none;"></div>
+    <!-- /.preloader -->
+
+
+    <!-- Main Header -->
+    <header class="main-header fixed-header" id="header">
+        <div class="page-header-mobile-info">
+            <div class="page-header-mobile-info-content">
+                <div class="header-info clearfix">
+                    <ul class="info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>660 Nehru Street, New Delhi </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <span>999 999 9991, Fax: +21 000 333</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-clock"></i>
+                            <span>Mon - Fri 9:00 am - 6:00 pm</span>
+                        </li>
+                    </ul>
+                    <ul class="social-style-one">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="toggle-box clearfix">
+                <div class="page-header-mobile-info-toggle"></div>
+                <div class="link"><a href="contact.html" class="theme-btn">Appointment</a></div>
+            </div>
+        </div>
+
+        <div class="header-top">
+            <div class="container">
+                <div class="header-info clearfix">
+                    <ul class="info-list pull-right">
+                        <li>
+                            <img src="{% static 'animalawarenessApp/images/icons/png/001-mail.png' %}"></img>
+                            <strong><a href="mailto:example@gmail.com">petopia@gmail.com</a></strong>
+                            Email address
+                        </li>
+                        <li>
+                            <img src="{% static 'animalawarenessApp/images/icons/png/003-phonecall.png' %}"></img>
+                            <strong><a href="tel:+886668880000">999 999 9991</a></strong>
+                            Phone line
+                        </li>
+                        <li>
+                            <img src="{% static 'animalawarenessApp/images/icons/png/002-three-o-clock-clock.png' %}">
+                            <strong>Mon - Fri 9:00 am - 6:00 pm</strong>
+                            Working hours
+                        </li>
+                        <a href="{% url 'signin' %}" ><img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/50/000000/external-login-call-to-action-bearicons-outline-color-bearicons.png" style="height: 35px;width: 35px;position: relative;top: -14px;left: 34px;"/></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="{% static 'animalawarenessApp/images/logo2.png' %}" alt=""></a></figure>
+                    </div>
+                    <div class="nav-outer clearfix">
+                        <div class="menu-area">
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header">
+                                    <!-- Toggle Button -->      
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li class="current dropdown"><a href="#">Home</a> 
+                                            <!--<ul style="display: none;">
+                                                <li><a href="index.html">Home Page 01</a></li>
+                                                <li><a href="index-2.html">Home Page 02</a></li>
+                                                <li class="dropdown"><a href="#">Header Styles</a>
+                                                <ul style="display: none;">
+                                                    <li><a href="index.html">Header Style 01</a></li>
+                                                    <li><a href="index-2.html">Header Style 02</a></li>
+                                                </ul>
+                                            <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                            </ul>
+                                            <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>-->
+                                        </li>
+                                        <li class="dropdown"><a href="#about">About</a>
+                                            <ul style="display: none;">
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="error.html">Info</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li> 
+                                        <li class="dropdown"><a href="#services">Services</a>
+                                            <ul style="display: none;">
+                                                <li><a href="service.html">Our Services</a></li>
+                                                <li><a href="{% url 'signin' %}">PetShop nearby</a></li>
+                                                <li><a href="{% url 'signin' %}">Veterinarian nearby</a></li>
+                                                <li><a href="{% url 'signin' %}">Programmes</a></li>
+                                                <!--<li><a href="single-service-4.html">Bath, Dry &amp; Brush</a></li>
+                                                <li><a href="single-service-5.html">Cleaning &amp; Plucking</a></li>
+                                                <li><a href="single-service-6.html">Coat Handler Pets</a></li>-->
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                        <li><a href="#gallery">Gallery</a></li>
+                                        <li class="dropdown"><a href="#">News</a>
+                                            <ul style="display: none; height: 104px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                                                <li><a href="blog.html">Our News</a></li>
+                                                <li><a href="blog-single.html">Single News</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>                              
+                                        <li><a href="#footer">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <ul class="social-style-one">
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>                                               
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Sticky Header-->
+        <!-- <div class="sticky-header">
+            <div class="container clearfix">
+                <figure class="logo-box"><a href="index.html"><img src="images/logo2.png" alt=""></a></figure>
+                <div class="menu-area">
+                    <nav class="main-menu navbar-expand-lg">
+                        <div class="navbar-header">
+                            ----------------- Toggle Button ---------------  
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="#">Home</a>
+                                    <ul style="display: none; height: 155px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                                        ----------<li><a href="index.html">Home Page 01</a></li>
+                                        <li><a href="index-2.html">Home Page 02</a></li>
+                                        <li class="dropdown"><a href="#">Header Styles</a>
+                                        <ul style="display: none;">
+                                            <li><a href="index.html">Header Style 01</a></li>
+                                            <li><a href="index-2.html">Header Style 02</a></li>
+                                        </ul>
+                                    <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                    </ul>
+                                    <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>---------------
+                                </li>
+                                <li class="dropdown"><a href="#">About</a>
+                                    <ul style="display: none; height: 104px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="error.html">Error Page</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li> 
+                                <li class="dropdown"><a href="#">Services</a>
+                                    <ul style="display: none;">
+                                        <li><a href="service.html">Our Services</a></li>
+                                        <li><a href="single-service-1.html">Petshop nearby</a></li>
+                                        <li><a href="single-service-2.html">Veterinarian nearby</a></li>
+                                        <li><a href="single-service-3.html">Programmes</a></li>
+                                        -------<li><a href="single-service-4.html">Bath, Dry &amp; Brush</a></li>
+                                        <li><a href="single-service-5.html">Cleaning &amp; Plucking</a></li>
+                                        <li><a href="single-service-6.html">Coat Handler Pets</a></li>--------------
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li class="dropdown"><a href="#">News</a>
+                                    <ul style="display: none;">
+                                        <li><a href="blog.html">Our News</a></li>
+                                        <li><a href="blog-single.html">Single News</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>                              
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>-------- sticky-header end -->
+    </header> 
+    <!-- End Main Header -->
+
+
+    <!-- main-slider -->
+    <section class="main-slider centred">
+        <div class="main-slider-carousel owl-carousel owl-theme owl-loaded owl-drag">
+          
+        <div class="owl-stage-outer">
+			<div class="owl-stage" style="transform: translate3d(-5396px, 0px, 0px); transition: all 0s ease 0s; width: 9443px;">
+			<div class="owl-item cloned" style="width: 1349px;">
+			<div class="slide"> <!-- changes made-->
+                <div class="container">
+                    <div class="content-box">
+                        <div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+                        <h1>We will Care for the pets</h1>
+                        <div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+                    </div>
+                </div>
+            </div></div><div class="owl-item cloned" style="width: 1349px;"><div class="slide">
+                <div class="container">
+                    <div class="content-box">
+                        <div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+                        <h1>We will Care for the pets</h1>
+                        <div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+                    </div>
+                </div>
+            </div></div><div class="owl-item" style ="width: 1349px;"><div class="slide">
+                <div class="container">
+                    <div class="content-box">
+                        <div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+                        <h1>We will Care for the pets</h1>
+                        <div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+                    </div>
+                </div>
+            </div></div><div class="owl-item" style="width: 1349px;"><div class="slide">
+                <div class="container">
+                    <div class="content-box">
+                        <div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+                        <h1>We will Care for the pets</h1>
+                        <div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+                    </div>
+                </div>
+            </div></div><div class="owl-item active" style="width: 1349px;"><div class="slide">
+                <div class="container">
+                    <div class="content-box">
+                        <div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+                        <h1>We will Care for the pets</h1>
+                        <div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+                    </div>
+                </div>
+            </div>
+			</div>
+			<div class="owl-item cloned" style="width: 1349px;">
+				<div class="slide">
+					<div class="container">
+						<div class="content-box">
+							<div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+							<h1>We will Care for the pets</h1>
+							<div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="owl-item cloned" style="width: 1349px;">
+				<div class="slide">
+					<div class="container">
+						<div class="content-box">
+							<div class="top-text">Trusted Pet Grooming &amp; Care Center</div>
+							<h1>We will Care for the pets</h1>
+							<div class="slider-btn"><a href="gallery.html" class="theme-btn">View Projects</a></div>
+						</div>
+					</div>
+				</div>
+			</div></div>
+		</div>
+		<div class="owl-nav">
+			<div class="owl-prev">
+				<span class="fa fa-angle-left" id="arrow"></span>
+			</div>
+			<div class="owl-next">
+				<span class="fa fa-angle-right" id="arrow"></span>
+			</div>
+		</div>
+		<div class="owl-dots">
+			<div class="owl-dot">
+				<span></span>
+			</div>
+			<div class="owl-dot">
+				<span></span>
+			</div>
+			<div class="owl-dot active">
+			<span></span>
+			</div>
+		</div>
+	</div>
+    </section>
+    <!-- main-slider end -->
+
+<!--
+     welcome-section 
+    <section class="welcome-section sec-pad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div class="content-box centred">
+                        <div class="sec-title">
+                            <div class="top-title">Welcome to Petopia</div>
+                            <h1>Your Pets are in Good Hands</h1>
+                        </div>
+                        <div class="text">
+                            <p>There are many variations of passages of available but the majority have suffered alteration in some form, by injected hu randomised words which don look slightly believable.</p>
+                        </div>
+                        <div class="lower-content">
+                            <div class="icon-box">--><!--<img src="../images/icons/png/003-phonecall.png">-->
+                                <!--<i class="fas fa-phone-alt"></i>
+								
+								<div class="text">Call us now for help</div>
+								<h2><a href="tel:+886668880000">999 999 9991</a></h2>
+								
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12 image-column">
+							<div class="image-box wow fadeInRight animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">
+								<figure class="image">
+									<img src="../template/images/welcome-1.png" alt="">
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>-->
+    <!-- welcome-section end -->
+
+
+    <!-- service-section -->
+    <section class="service-section sec-pad centred gray-bg" id="services">
+        <div class="container">
+            <div class="sec-title alternate-color">
+                <div class="top-title">Our Services</div>
+                <h1>What We Do</h1>
+            </div>
+            <div class="inner-content">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-column wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="service-block-one">
+                            <figure class="image-box"><a href="single-service-1.html"><img src="{% static 'animalawarenessApp/images/service-1.gif' %}" alt=""></a></figure>
+                            <div class="lower-content">
+                                <h2><a href="single-service-1.html">Programs for<br> animal protection</a></h2>
+                                <div class="text">Programs and organisations related to spread the awareness for animal protection.</div>
+                                <div class="link"><a href="single-service-1.html">Read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-column wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <div class="service-block-one">
+                            <figure class="image-box"><a href="single-service-2.html"><img src="{% static 'animalawarenessApp/images/service-2.gif' %}" alt=""></a></figure>
+                            <div class="lower-content">
+                                <h2><a href="single-service-2.html">Pet Shop near you</a></h2>
+                                <div class="text">Search for petshop near your location.</div><br><br>
+                                <div class="link"><a href="single-service-2.html">Read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-column wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+                        <div class="service-block-one">
+                            <figure class="image-box"><a href="single-service-3.html"><img src="{% static 'animalawarenessApp/images/service-3.gif' %}" alt=""></a></figure>
+                            <div class="lower-content">
+                                <h2><a href="single-service-3.html">Veterinarian<br>near you</a></h2>
+                                <div class="text">Search for veterinarian near your location.</div><br>
+                                <div class="link"><a href="single-service-3.html">Read more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-box"><a href="service.html" class="theme-btn">View All Services</a></div>
+        </div>
+    </section>
+    <!-- service-section end -->
+
+
+    <!-- takecare-section -->
+    <section class="takecare-section black-bg centred">
+        <div class="container">
+            <div class="sec-title">
+                <div class="top-title">We Love These Pets</div>
+                <h1>Pets Protection</h1>
+            </div>
+            <div class="inner-content">
+                <ul class="clearfix">
+                    <li class="single-item wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: slideInUp;">
+                        <div class="icon-box">
+							<img src="{% static 'animalawarenessApp/images/icons/png/004-cat.png' %}">
+							<!--<i class="flaticon-cat"></i>-->
+						</div>
+                        <h2><a href="#">Cat</a></h2>
+                        <!--<div class="text">Lorem ipsum simply free text in the market</div>-->
+                    </li>
+                    <li class="single-item wow slideInUp animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: slideInUp;">
+                        <div class="icon-box">
+							<img src="{% static 'animalawarenessApp/images/icons/png/005-dog.png' %}"><!--<i class="flaticon-dog"></i>-->
+						</div>
+                        <h2><a href="#">Dog</a></h2>
+                        <!--<div class="text">Lorem ipsum simply free text in the market</div>-->
+                    </li>
+                    <li class="single-item wow slideInUp animated" data-wow-delay="200ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: slideInUp;">
+                        <div class="icon-box">
+							<img src="{% static 'animalawarenessApp/images/icons/png/006-bird.png' %}"><!--<i class="flaticon-bird"></i>-->
+						</div>
+                        <h2><a href="#">Birds</a></h2>
+                        <!--<div class="text">Lorem ipsum simply free text in the market</div>-->
+                    </li>
+                    <li class="single-item wow slideInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: slideInUp;">
+                        <div class="icon-box">
+							<img src="{% static 'animalawarenessApp/images/icons/png/007-rabbit.png' %}"><!--<i class="flaticon-rabbit"></i>-->
+						</div>
+                        <h2><a href="#">Rabbit</a></h2>
+                        <!--<div class="text">Lorem ipsum simply free text in the market</div>-->
+                    </li>
+                    <li class="single-item wow slideInUp animated" data-wow-delay="400ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 400ms; animation-name: slideInUp;">
+                        <div class="icon-box">
+							<img src="{% static 'animalawarenessApp/images/icons/png/008-fish.png' %}"><!--<i class="flaticon-fish"></i>-->
+						</div>
+                        <h2><a href="#">Fishes</a></h2>
+                        <!--<div class="text">Lorem ipsum simply free text in the market</div>-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- takecare-section end -->
+
+
+    <!-- gallery-section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container-fluid">
+            <ul class="gallery-carousel owl-theme owl-carousel owl-loaded owl-drag">
+                
+                
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1355px, 0px, 0px); transition: all 0s ease 0s; width: 4065px;"><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-1.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawareness/images/gallery-1.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-2.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawareness/images/gallery-2.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-3.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawareness/images/gallery-3.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-4.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawareness/images/gallery-4.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-5.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-5.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item active" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-1.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawareness/images/gallery-1.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item active" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-2.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-2.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item active" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-3.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-3.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item active" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-4.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-4.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item active" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-5.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-5.png'%}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-1.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-1.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-2.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-2.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-3.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-3.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-4.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-4.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div><div class="owl-item cloned" style="width: 265px; margin-right: 6px;"><li class="single-gallery-block">
+                    <figure class="image-box">
+                        <img src="{% static 'animalawarenessApp/images/gallery-5.png' %}" alt="">
+                        <div class="icon-box"><a href="{% static 'animalawarenessApp/images/gallery-5.png' %}" class="lightbox-image" data-fancybox="gallery"><img src="{% static 'animalawarenessApp/images/icons/png/009-add.png' %}"></a></div>
+                    </figure>
+                </li></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots disabled"><div class="owl-dot active"><span></span></div></div></ul>
+        </div>
+    </section>
+    <!-- gallery-section end -->
+
+    <!-- about-section -->
+    <section class="about-section" id="about">
+        <div class="bg-column"></div> <!--style=background-image:url(" {%static 'animalawareness/images/about-bg.jpg' %} );--> 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                    <div class="content-box">
+                        <div class="sec-title">
+                            <div class="top-title">About Petopia</div>
+                            <h1>Animal Care</h1>
+                        </div>
+                        <div class="text">
+                            <p>Petopia focuses on protecting animals. It awares people with the ongoing programs and the neccessities for animal protection. Want to know more about it? </p>
+                        </div>
+                        <div class="fact-counter centred">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 counter-column">
+                                    <div class="counter-block wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: slideInUp;">
+                                        <div class="count-outer count-box counted">
+                                            <span class="count-text" data-speed="1500" data-stop="480">480</span>
+                                        </div>
+                                        <div class="text">Clients loved petopia services</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 counter-column">
+                                    <div class="counter-block wow slideInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: slideInUp;">
+                                        <div class="count-outer count-box counted">
+                                            <span class="count-text" data-speed="1500" data-stop="77">77+</span>
+                                        </div>
+                                        <div class="text">Ongoing Programs worldwide</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+
+    <!-- news-section -->
+    <!--<section class="news-section sec-pad">
+        <div class="container">
+            <div class="sec-title centred">
+                <div class="top-title">Our Blog &amp; News</div>
+                <h1>Latest News &amp; Articles</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-column">
+                    <div class="news-block-one wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                        <div class="date">04<br>Sep</div>
+                        <figure class="image-box"><a href="blog-single.html"><img src="{% static 'animalawarenessApp/images/news-1.png' %}" alt=""></a></figure>
+                        <div class="lower-content">
+                            <ul class="info-box">
+                                <li>Mike Hardson</li>
+                                <li>3 Comments</li>
+                            </ul>
+                            <h3><a href="blog-single.html">How to take care of any kind of your pets</a></h3>
+                            <div class="text">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            </div>
+                            <div class="link"><a href="blog-single.html">Read more</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-column">
+                    <div class="news-block-one wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInLeft;">
+                        <div class="date">05<br>Sep</div>
+                        <figure class="image-box"><a href="blog-single.html"><img src="{% static 'animalawarenessApp/images/news-2.png' %}" alt=""></a></figure>
+                        <div class="lower-content">
+                            <ul class="info-box">
+                                <li>Mike Hardson</li>
+                                <li>2 Comments</li>
+                            </ul>
+                            <h3><a href="blog-single.html">Shelter and feed animals that are in need</a></h3>
+                            <div class="text">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            </div>
+                            <div class="link"><a href="blog-single.html">Read more</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-column">
+                    <div class="news-block-one wow fadeInLeft animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInLeft;">
+                        <div class="date">06<br>Sep</div>
+                        <figure class="image-box"><a href="blog-single.html"><img src="{% static 'animalawarenessApp/images/news-3.png' %}" alt=""></a></figure>
+                        <div class="lower-content">
+                            <ul class="info-box">
+                                <li>Mike Hardson</li>
+                                <li>4 Comments</li>
+                            </ul>
+                            <h3><a href="blog-single.html">Dog walking helps keep your dog sane</a></h3>
+                            <div class="text">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            </div>
+                            <div class="link"><a href="blog-single.html">Read more</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- news-section end -->
+
+
+    <!-- testimonial-section -->
+    <section class="testimonial-section centred">
+        <div class="container">
+            <div class="inner-content">
+                <div class="testimonial-carousel owl-theme owl-carousel owl-loaded owl-drag">
+                                    
+                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1872px, 0px, 0px); transition: all 0s ease 0s; width: 6552px;"><div class="owl-item cloned" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item cloned" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item active" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item cloned" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div><div class="owl-item cloned" style="width: 930px; margin-right: 6px;"><div class="testimonial-content">
+                        <h2>If you pick up a starving dog and make him prosperous he will not bite you. This is the principal difference between a dog and man.</h2>
+                        <span>- Mark Twain</span>
+                    </div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-section end -->
+
+
+    <!-- contact-section -->
+    <section class="contact-section centred">
+        <div class="container">
+            <div class="sec-title">
+                <div class="top-title">Contact with Us</div>
+                <h1>Help us to Improve</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 col-md-12 col-sm-12 offset-lg-1 form-column">
+                    <div class="contact-form-area">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <input type="text" name="name" placeholder="Full name" required="">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <input type="email" name="email" placeholder="Email address" required="">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <input type="tel" name="phno" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Phone number" required="" style="position: relative;display: block;width: 99%;height: 72px;background: #f2f1f0; border: 3px solid #f2f1f0; color: #615e5d; border-radius: 40px; padding: 15px 25px; font-size: 15px;font-family: 'Poppins'; transition: all 500ms ease;">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <input type="text" name="subject" placeholder="Subject" required="">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <textarea name="message" placeholder="Write here message"></textarea>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                    <button type="submit" name="submit" class="theme-btn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-section end -->
+
+
+    <!-- main-footer -->
+    <footer class="main-footer gray-bg" id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="top-content clearfix">
+                    <figure class="footer-logo"><a href="index.html"><img src="{% static 'animalawarenessApp/images/logo2.png' %}" alt=""></a></figure>
+                    <ul class="social-style-one">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="widget-section">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
+                        <div class="footer-widget links-widget">
+                            <h3 class="widget-title">Explore</h3>
+                            <div class="widget-content">
+                                <ul class="link">
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#services">Services</a></li>
+                                    <li><a href="#gallery">Gallery</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 footer-column">
+                        <div class="footer-widget links-widget">
+                            <h3 class="widget-title">Links</h3>
+                            <div class="widget-content">
+                                <ul class="link">
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Location</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 footer-column">
+                        <div class="footer-widget contact-widget">
+                            <h3 class="widget-title">Contact</h3>
+                            <div class="widget-content">
+                                <div class="text">Contact us<br/> 
+                                    <a href="mailto:example@gmail.com">petopia@gmail.com</a>
+                                    <a href="mailto:info@gmail.com">infopetopia@gmail.com</a>
+                                </div>
+                                <div class="phone"><a href="tel:+886668880000">999 999 9991</a></div>
+                                <div class="phone"><a href="tel:+88333555999">1234567890</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 footer-column">
+                        <div class="footer-widget about-widget">
+                            <h3 class="widget-title">About</h3>
+                            <div class="widget-content">
+                                <div class="text">“Until one has loved an animal, a part of one's soul remains unawakened.” –Anatole France.</div>
+                                <div class="subscribe-form">
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email address" required="">
+                                            <button type="submit"><i class="fa fa-angle-right"></i></button> 
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom centred black-bg">
+            <div class="container">
+                <div class="copyright">© Copyrights 2021 @Petopia. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+    <!-- main-footer end -->
+
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target open" data-target="html">
+    <a href="#header"><span class="fa fa-arrow-up"></span></a>
+</button>
+
+
+
+<!-- jequery plugins -->
+<script>
+    alert("{{status}}");
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/bxslider.js"></script>
+<script src="js/appear.js"></script>
+
+<!-- main-js -->
+<script src="js/script.js"></script>
+
+
+
+</body><!-- End of .page_wrapper -->
+{% endblock %}
+</html>
+<!--https://bootstrap4.com/tag/pet-shop/-->

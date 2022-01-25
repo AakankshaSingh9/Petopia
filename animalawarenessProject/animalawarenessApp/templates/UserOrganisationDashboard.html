@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- External Files -->
+        <link rel="stylesheet" href="{% static 'animalawarenessApp/css/UserDashboard.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        
+    <title>User-OrganisationDashboard</title>
+    <style>
+        body{
+            text-decoration: none;
+        }
+        a,p{
+            text-decoration: none;
+            
+        }
+        img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.btn {
+  background-color: white;
+  border: 1px solid #cccccc;
+  color: #696969;
+  padding: 0.5rem;
+  text-transform: lowercase;
+}
+.btn--block {
+  display: block;
+  width: 100%;
+  text-transform: capitalize;
+}
+.cards01{
+    position: relative;
+    left: 25%;
+    top: 85px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width:75%;
+}
+.cards01__item {
+  display: flex;
+  padding: 1rem;
+}
+@media (min-width: 40rem) {
+  .cards01__item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards01__item {
+    width: 33.3333%;
+  }
+}
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card:hover .card__image {
+  filter: contrast(100%);
+}
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;  
+  position: relative;
+  background-color: #fff;
+  text-decoration: none;
+}
+.card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+}
+.card__image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+@media (min-width: 40rem) {
+  .card__image::before {
+    padding-top: 66.6%;
+  }
+}
+.card__image--flowers {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlvIU0ycMc4C40MvIajkgMy70zUarNgbDHsg&usqp=CAU);
+}
+.card__image--river {
+  background-image: url(https://www.peta.org/wp-content/themes/petaorg/assets/images/peta-logo.svg);
+}
+.card__image--record {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRey172yaLVO5qwn-1AogQCYp90qSnhIkjcvF05P3xGD2fIKHQvGtJ9119EOXJGuNaiWQ&usqp=CAU);
+}
+.card__image--fence {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFAMs9cpHdpGhXfknzXPGmwrjkiY2qRBNzVD6Y8QTQ9abfLVcww0mlotAaqqsy89eiRg&usqp=CAU);
+}
+.card__title {
+  color: #696969;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#"></a>
+                        <span class="icon"><img src="{% static 'animalawarenessApp/images/logo1.png' %}" style="height:60px;"></span>
+                        <!--<span class="title"><h2>Brand Name</h2></span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdashboard' %}">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title dashboard"><h2>Home</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'usersearchview' %}">
+                        <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="title modifications"><h2>Search</h2></span>
+                        <!--<ul>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Petshop</h3></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Veterinarian</h3></span>
+                                </a>
+                            </li>
+                        </ul>-->
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{% url 'userprogramview' %}">
+                        <span class="icon"><i class="fa fa-paw" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Program</h2></span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{% url 'userorganisationview' %}">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Organisations</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdonationview' %}">
+                        <span class="icon"><i class="fa fa-inr" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Donation</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userfeedbackview' %}">
+                        <span class="icon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Feedback</h2></span>
+                    </a>
+                </li>
+                <li>
+                <a href="#" id="logout" >
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title logout"><h2>Logout</h2></span>
+                </li> 
+            </ul>
+        </div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu();"></div>
+				<!--<div class="search">
+					<label>
+						<input type="text" placeholder="Search here"><i class="fa fa-search" aria-hidden="true"></i>
+					</label>
+				</div>-->										
+			</div>
+		</div>
+    <div class="" style="position: relative;left: 330px;color:#174e1791; top:100px;text-decoration: none;">
+      <a href="{% url 'userdashboard' %}" style="text-decoration: none;">  >DASHBOARD / </a><a href="" style="text-decoration: none;">ORGANISATION</a>
+  </div>
+    <br/>
+    <br/>
+
+<ul class="cards01">
+    <li class="cards01__item">
+      <div class="card">
+        <div class="card__image card__image--fence"></div>
+        <div class="card__content">
+          <div class="card__title">World Wide Fund for Nature</div><br/>
+          <p class="card__text">There mission is to conserve nature and reduce the most pressing threats to the diversity of life on Earth.
+
+        </p>
+          <button class="btn btn--block card__btn">Read more</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards01__item">
+      <div class="card">
+        <div class="card__image card__image--river"></div>
+        <div class="card__content">
+          <div class="card__title">Peta</div><br/>
+          <p class="card__text">People for the Ethical Treatment of Animals (PETA) is the largest animal rights organization in the world, and PETA entities have more than 9 million members and supporters globally.</p>
+          <button class="btn btn--block card__btn">Read more</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards01__item">
+      <div class="card">
+        <div class="card__image card__image--record"></div>
+        <div class="card__content">
+          <div class="card__title">World Animal Protection</div><br/>
+          <p class="card__text">World Animal Protection, formerly The World Society for the Protection of Animals is an international non-profit animal rights organization that has been in operation for over 30 years. The charity describes its vision as: A world where animal rights matters and animal cruelty has ended. </p>
+          <button class="btn btn--block card__btn">Read more</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards01__item">
+      <div class="card">
+        <div class="card__image card__image--flowers"></div>
+        <div class="card__content">
+          <div class="card__title">Wildlife Conservation Society</div><br/>
+          <p class="card__text">The Wildlife Conservation Society is a non-governmental organization headquartered at the Bronx Zoo in New York City, that aims to conserve the world's largest wild places</p>
+          <button class="btn btn--block card__btn">Read more</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+    <!--Script-->
+    <script>/*src="../Mini Project/JS/app.js"*/
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener('click',() => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener('click',() => {
+            container.classList.remove("sign-up-mode");
+        });
+     </script>
+    
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        
+        
+        //sessionStorage.setItem("", "Shrek");					
+        
+		//Toggle
+		function toggleMenu()
+		{
+			let toggle = document.querySelector('.toggle');
+			let navigation = document.querySelector('.navigation');
+			let main = document.querySelector('.main');
+			toggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+    </script>
+     <script>
+        document.getElementById("logout").addEventListener("click",show);
+        function show()
+        {
+            var ans=confirm("Do you want to logout?");
+            if(ans)
+                window.location.replace("{% url 'indexview' %}");
+            else
+            {}
+        }
+    </script>
+</body>
+{% endblock %}
+</html>

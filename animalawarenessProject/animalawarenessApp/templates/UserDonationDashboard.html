@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- External Files -->
+        <link rel="stylesheet" href="{% static 'animalawarenessApp/css/UserDashboard.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	
+    <title>User-DonationDashboard</title>
+    <style>
+        .donation{
+            position: relative;
+            top:60px;
+            left:40%;
+            height:500px;
+            width:500px;
+        }
+        .donation-card{
+            color:#fff;
+            font-family:Poppins;
+            font-size:15px;
+        }
+        .form{
+            background-color: #fff;
+            width: 100%;
+            padding: 25px 5px;
+            height: 300px;
+            color: #333;
+            margin: 5px 9px;
+            /* text-align: center; */
+            border-radius: 6px;
+            transition: 1s;
+        }
+        .form:focus{
+            border-radius:20px;
+            border:1px solid #a6a6a6;
+        }
+        /* .field input[type='text'], input[type='text'], input[type='text']{
+            border-radius: 7px; 
+            border:1px solid
+        } */
+        input[type='text'], input[type='number']{
+            width: 100%;
+            padding: 7px 5px;
+            margin:9px 0px;
+            height: 40px;
+            color: #333;
+            /* text-align: center; */
+            border-radius: 6px;
+            border:1px solid #d4d0d0;
+        }
+        input[type='submit']{
+            background-color: #5b8be0;
+            border-radius: 2px;
+            width: 100%;
+            border:1px;
+            color:beige;    
+            padding: 7px 5px;
+            margin:9px 0px;
+            height: 50px;
+            transition:0.5s;
+            font-weight: bold;
+        }
+        input[type='submit']:hover{
+            background-color: #fff;
+            border:2px solid #5b8be0;            
+            color:#5b8be0;
+        }
+        .donation h3{
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#"></a>
+                        <span class="icon"><img src="{% static 'animalawarenessApp/images/logo1.png' %}" style="height:60px;"></span>
+                        <!--<span class="title"><h2>Brand Name</h2></span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdashboard' %}">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title dashboard"><h2>Home</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'usersearchview' %}">
+                        <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="title modifications"><h2>Search</h2></span>
+                        <!--<ul>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Petshop</h3></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Veterinarian</h3></span>
+                                </a>
+                            </li>
+                        </ul>-->
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{% url 'userprogramview' %}">
+                        <span class="icon"><i class="fa fa-paw" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Program</h2></span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{% url 'userorganisationview' %}">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Organisations</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdonationview' %}">
+                        <span class="icon"><i class="fa fa-inr" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Donation</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userfeedbackview' %}">
+                        <span class="icon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Feedback</h2></span>
+                    </a>
+                </li>
+                <li>
+                <a href="#" id="logout" >
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title logout"><h2>Logout</h2></span>
+                </a>
+                </li> 
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu();"></div>
+                <!--<div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here"><i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>-->										
+            </div>
+        </div>
+        <div class="" style="position: relative;left: 330px;color:#174e1791; top:100px;text-decoration: none;">
+            <a href="{% url 'userdashboard' %}" style="text-decoration: none;">  >DASHBOARD / </a><a href="" style="text-decoration: none;">DONATION</a>
+        </div>
+
+        <!-- form -->
+    <div class="donation">
+        <div class="donation_card">
+            <img src="{% static 'animalawarenessApp/images/gifdonate.gif' %}" >
+            <h3>We need your support !</h3>
+            <div class="form">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 field">
+                            <input type="text" name="name" placeholder="Full name" required="">
+                        </div>                        
+                        <div class="col-lg-6 col-md-12 col-sm-12 field">
+                            <input type="text" name="paymode" placeholder="Online" value="Online" readonly>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 field">
+                            <input type="number" name="amount" placeholder="Amount" required="">
+                        </div>
+                        <input type="submit" name="submit" value="Submit" id="pay-btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    
+    <!--Script-->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+
+  <script> 
+
+    var options = { 
+
+      // Enter the Key ID generated from the Dashboard 
+      key: "rzp_test_kTiY9fjMZyPMym", 
+      // Amount is in currency subunits. 
+      // Default currency is INR. Hence, 
+      // 50000 refers to 50000 paise 
+      amount: "{{ razorpay_amount }}", 
+      currency: "{{ currency }}",       
+      // Your/store name. 
+      name: "Petopia", 
+      // Pass the `id` obtained in the response of Step 1 
+      order_id: "{{ razorpay_order_id }}", 
+      callback_url: "{{ callback_url }}", 
+    }; 
+
+     // initialise razorpay with the options. 
+    var rzp1 = new Razorpay(options); 
+    // add event listener to the payment button. 
+
+    document.getElementById("pay-btn").onclick = function (e) { 
+      rzp1.open(); 
+      e.preventDefault(); 
+    }; 
+
+  </script>
+    <script>
+        alert("{{msg}}");
+    </script>
+    <script>/*src="../Mini Project/JS/app.js"*/
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener('click',() => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener('click',() => {
+            container.classList.remove("sign-up-mode");
+        });
+    </script>
+    
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        
+        
+        //sessionStorage.setItem("", "Shrek");					
+        
+		//Toggle
+		function toggleMenu()
+		{
+			let toggle = document.querySelector('.toggle');
+			let navigation = document.querySelector('.navigation');
+			let main = document.querySelector('.main');
+			toggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+    </script>
+     <script>
+        document.getElementById("logout").addEventListener("click",show);
+        function show()
+        {
+            var ans=confirm("Do you want to logout?");
+            if(ans)
+                window.location.replace("{% url 'indexview' %}");
+            else
+            {}
+        }
+    </script>
+</body>
+{% endblock %}
+</html>

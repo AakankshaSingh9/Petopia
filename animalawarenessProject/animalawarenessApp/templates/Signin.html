@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% block content %}
+    {% load static %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="signin.css">-->
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		<title>SignIn</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<style>
+			* {
+			margin:0px;
+			padding:0px;
+			border:none;
+			outline:none;
+			}
+			.container-fluid{
+				padding:0;
+				margin:0;
+			}
+			.main
+			{
+				display:flex;
+			}
+			.left::before
+			{
+				background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+				content: "";
+				display: block;
+				position: absolute;
+				z-index: -1;
+				width: 100%;
+    			height: 100%;								
+				opacity:0.6;
+			}
+			.left
+			{
+				background: url("{% static 'animalawarenessApp/images/dog-cat.jpg' %}");
+				background-position: center;
+				background-size: cover;
+    			/*width: calc(100% - 520px);*/
+				width: calc(100%);
+				height:700px;
+				position: relative;
+				z-index: 1;
+			}
+			.right
+			{
+				display: block;
+				width: 50%;
+				height: 50px;
+				background: transparent;
+				font-family: Poppins;
+				font-size: 22px;
+				padding:50px;
+				position: relative;
+    			top: 125px;
+			}
+			.login 
+			{
+				width: 320px;
+				padding: 30px;
+				padding-top: 156px;
+			}
+
+			.login__field 
+			{
+				padding: 20px 0px;	
+				position: relative;	
+			}
+
+			.login__icon
+			{
+				position: absolute;
+				top: 30px;
+				color: #7875B5;
+			}
+
+			.login__input 
+			{
+				border: none;
+				border-bottom: 2px solid #D1D1D4;
+				background: none;
+				padding: 10px;
+				padding-left: 24px;
+				font-weight: 700;
+				width: 75%;
+				transition: .2s;
+				font-family: 'Poppins';
+			}
+
+			.login__input:active,
+			.login__input:focus,
+			.login__input:hover 
+			{
+				outline: none;
+				border-bottom-color: #6A679E;
+			}
+
+			.login__submit 
+			{
+				background: #fff;
+				font-size: 14px;
+				margin-top: 30px;
+				padding: 16px 20px;
+				border-radius: 26px;
+				border: 1px solid #D4D3E8;
+				text-transform: uppercase;
+				font-weight: 700;
+				display: flex;
+				align-items: center;
+				width: 40%;
+				color: #4C489D;
+				box-shadow: 0px 2px 2px #5C5696;
+				cursor: pointer;
+				transition: .2s;
+			}
+
+			.login__submit:active,
+			.login__submit:focus,
+			.login__submit:hover 
+			{
+				border-color: #6A679E;
+				outline: none;
+			}
+
+			.button__icon 
+			{
+				font-size: 24px;
+				margin-left: auto;
+				color: #7875B5;
+			}
+			.main a{
+				text-decoration: none;
+			}
+			.signup{
+				font-size:18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="main">
+				<div class="col-md-6 col-sm-12 col-lg-6 left">				
+				</div>
+				<div class="col-md-6 col-sm-12 col-lg-6 right">
+					<form class="loginform validate-form" method="POST">
+						{% csrf_token %}
+						<span class="login-form-title">Sign In</span>
+						<div class="login__field">
+							<i class="login__icon fas fa-user"></i>
+							<input type="email" class="login__input" name="username" placeholder="Email" required>
+						</div>
+						<div class="login__field">
+							<i class="login__icon fas fa-lock"></i>
+							<input type="password" class="login__input" name="password" placeholder="Password" required>
+						</div>
+						<button class="button login__submit">
+							<span class="button__text">SignIn</span>
+							<i class="button__icon fas fa-chevron-right"></i>
+						</button>
+						<br/>	
+						<span class="signup">Don't have an account?<a href="{% url 'registration' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SignUp!</a>
+					</form>
+				</div>
+			</div>
+		</div>
+		{% if status %}
+			<script>
+				alert("{{status}}");
+				windows.location="/"
+			</script>
+		{% endif %}
+		{% if error %}
+                <script>
+                    alert("{{error}}");
+                </script>
+                {% endif %}
+	</body>
+	{% endblock %}
+</html>
