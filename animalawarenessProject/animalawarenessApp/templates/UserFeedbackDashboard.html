@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- External Files -->
+        <link rel="stylesheet" href="{% static 'animalawarenessApp/css/UserDashboard.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	
+    <title>User-Dashboard</title>
+    <style>
+        section{
+            display:contents;
+        }
+        h1{
+            color:#1f7a1f;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#"></a>
+                        <span class="icon"><img src="{% static 'animalawarenessApp/images/logo1.png' %}" style="height:60px;"></span>
+                        <!--<span class="title"><h2>Brand Name</h2></span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdashboard' %}">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title dashboard"><h2>Home</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'usersearchview' %}">
+                        <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="title modifications"><h2>Search</h2></span>
+                        <!--<ul>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Petshop</h3></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Veterinarian</h3></span>
+                                </a>
+                            </li>
+                        </ul>-->
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{% url 'userprogramview' %}">
+                        <span class="icon"><i class="fa fa-paw" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Program</h2></span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{% url 'userorganisationview' %}">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Organisations</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdonationview' %}">
+                        <span class="icon"><i class="fa fa-inr" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Donation</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userfeedbackview' %}">
+                        <span class="icon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Feedback</h2></span>
+                    </a>
+                </li>
+                <li>
+                <a href="#" id="logout" >
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title logout"><h2>Logout</h2></span>
+                </li> 
+            </ul>
+        </div>
+		<div class="main">		
+            <div class="topbar">
+				<div class="toggle" onclick="toggleMenu();"></div>
+				<!--<div class="search">
+					<label>
+						<input type="text" placeholder="Search here"><i class="fa fa-search" aria-hidden="true"></i>
+					</label>
+				</div>-->										
+			</div>
+            
+            <!--feedback-->
+            <section class="contact-section centred">
+                <div class="container">
+                    <div class="sec-title">
+                        <h1>Help us to Improve</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-md-12 col-sm-12 offset-lg-1 form-column">
+                            <div class="contact-form-area">
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <input type="text" name="name" placeholder="Full name" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <input type="email" name="email" placeholder="Email address" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <input type="tel" name="phno" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Phone number" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <input type="text" name="subject" placeholder="Subject" required="">
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                            <textarea name="message" placeholder="Write here message"></textarea>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                            <button type="submit" name="submit" class="theme-btn">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--feedback end-->
+		</div>
+        <div class="" style="position: relative;left: 330px;color:#174e1791; top:100px;text-decoration: none;">
+            <a href="{% url 'userdashboard' %}" style="text-decoration: none;">  >DASHBOARD / </a><a href="" style="text-decoration: none;">FEEDBACK</a>
+        </div>
+    </div>
+
+    
+    <!--Script-->
+    <script>
+        alert("{{status}}");
+    </script>
+    <script>/*src="../Mini Project/JS/app.js"*/
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener('click',() => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener('click',() => {
+            container.classList.remove("sign-up-mode");
+        });
+     </script>
+    
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        
+        
+        //sessionStorage.setItem("", "Shrek");					
+        
+		//Toggle
+		function toggleMenu()
+		{
+			let toggle = document.querySelector('.toggle');
+			let navigation = document.querySelector('.navigation');
+			let main = document.querySelector('.main');
+			toggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+    </script>
+     <script>
+        document.getElementById("logout").addEventListener("click",show);
+        function show()
+        {
+            var ans=confirm("Do you want to logout?");
+            if(ans)
+                window.location.replace("{% url 'indexview' %}");
+            else
+            {}
+        }
+    </script>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- External Files -->
+        <link rel="stylesheet" href="{% static 'animalawarenessApp/css/UserDashboard.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Galada|Indie+Flower|Lacquer|Lemonada|Lobster|Montserrat|Dancing+Script|Open+Sans+Condensed:300|Pacifico|Poppins|Quicksand|Raleway&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Akronim|Bungee+Inline|Fredericka+the+Great|Frijole|Give+You+Glory|Monoton|Reenie+Beanie|Rye&display=swap" rel="stylesheet">  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	
+    <title>User-SearchDashboard</title>
+    <style>
+        .btn-bolt{
+            position: relative;
+            top: 10px;
+        }
+        .btn--bolt:hover {
+        background: #9dc638;
+        color: #e72636;
+        transition-delay: 0.3s;
+        transition-duration: 0.1s;
+        }
+        .btn--bolt:hover i {
+        animation: pulse 1.5s 0.3s infinite;
+        transform-origin: center center;
+        }
+        .btn--bolt .btn-anim:after, .btn--bolt .btn-anim:before {
+        background: #9dc638;
+        }
+
+        .btn {
+        display: inline-flex;
+        width:270px;
+        align-items: center;
+        position: relative;
+        top:-50px;
+        left:30px;
+        padding: 0 2.3rem;
+        margin: 30px 30px 60px;
+        max-width: 100%;
+        min-width: 170px;
+        height: 6.7rem;
+        border: 2px solid black;
+        border-top-color: transparent;
+        color: black;
+        text-align: center;
+        font-family: "Lato", sans-serif;
+        cursor: pointer;
+        font-size: 1.4rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition-delay: 0s;
+        }
+        @media (max-width: 719px) {
+        .btn {
+            margin: 30px 0 60px;
+        }
+        }
+        .btn-content {
+        text-align: center;
+        display: block;
+        width: 100%;
+        }
+        .btn-icon {
+        font-size: 22px;
+        position: absolute;
+        z-index: 666;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        .btn-topFakeBorders:before, .btn-topFakeBorders:after {
+        content: "";
+        display: block;
+        background: black;
+        height: 2px;
+        width: calc(50% - 35px);
+        position: absolute;
+        bottom: 100%;
+        left: -2px;
+        z-index: 1;
+        }
+        .btn-topFakeBorders:after {
+        left: auto;
+        right: -2px;
+        }
+        .btn-anim:after, .btn-anim:before {
+        content: "";
+        display: block;
+        position: absolute;
+        transition-duration: 0.1s;
+        z-index: 2;
+        }
+        .btn-bottomAnim:after, .btn-bottomAnim:before {
+        width: 0;
+        height: 2px;
+        top: 100%;
+        right: 50%;
+        transition-delay: 0.2s;
+        }
+        .btn-bottomAnim:before {
+        left: 50%;
+        right: auto;
+        }
+        :hover > .btn-bottomAnim:after, :hover > .btn-bottomAnim:before {
+        width: 50%;
+        transition-delay: 0s;
+        }
+        .btn-sideAnim:after, .btn-sideAnim:before {
+        width: 2px;
+        height: 0;
+        bottom: -2px;
+        right: 100%;
+        transition-delay: 0.1s;
+        }
+        .btn-sideAnim:before {
+        left: 100%;
+        right: auto;
+        }
+        :hover > .btn-sideAnim:after, :hover > .btn-sideAnim:before {
+        height: calc(100% + 2px);
+        transition-delay: 0.1s;
+        }
+        .btn-topAnim:after, .btn-topAnim:before {
+        width: 0;
+        height: 2px;
+        bottom: 100%;
+        right: -2px;
+        transition-delay: 0s;
+        }
+        .btn-topAnim:before {
+        left: -2px;
+        right: auto;
+        }
+        :hover > .btn-topAnim:after, :hover > .btn-topAnim:before {
+        width: calc(50% - 35px);
+        transition-delay: 0.2s;
+        }
+
+        .wrapper {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 22px;
+        }
+        @media (max-width: 719px) {
+        .wrapper {
+            flex-direction: column;
+            width: auto;
+            height: auto;
+        }
+        }
+
+        @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(0.95);
+        }
+        35% {
+            transform: scale(0.87);
+        }
+        45% {
+            transform: scale(1.15);
+        }
+        55% {
+            transform: scale(0.87);
+        }
+        65% {
+            transform: scale(1.15);
+        }
+        75% {
+            transform: scale(1.08);
+        }
+        100% {
+            transform: scale(1);
+        }
+        }
+        @keyframes rotate360 {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+        }
+        @keyframes rotateWobble {
+        33% {
+            transform: rotate(-10deg);
+        }
+        66% {
+            transform: rotate(10deg);
+        }
+        }
+        @keyframes wobbleHorizontal {
+        33% {
+            transform: translateX(-1rem);
+        }
+        66% {
+            transform: translateX(1rem);
+        }
+        }
+        @keyframes wobbleVertical {
+        33% {
+            transform: translateY(-1rem);
+        }
+        66% {
+            transform: translateY(1rem);
+        }
+        }
+        @keyframes spaceForwardAnim {
+        0% {
+            transform: translate(-10rem, -3px);
+            font-size: 1em;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        10% {
+            transform: translate(-2rem, 3px);
+            font-size: 2.2em;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        65% {
+            transform: translate(1rem, 3px);
+            font-size: 2.2em;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        95% {
+            transform: translate(2rem, 3px);
+            font-size: 2.2em;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        100% {
+            transform: translate(10rem, 3px);
+            font-size: 3em;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+        }
+        @keyframes wheelAround {
+        0% {
+            top: auto;
+            bottom: 100%;
+            left: 0;
+            right: auto;
+            transform: none;
+        }
+        26% {
+            top: auto;
+            bottom: 100%;
+            left: 100%;
+            right: auto;
+            transform: none;
+        }
+        27% {
+            top: auto;
+            bottom: 100%;
+            left: 100%;
+            right: auto;
+            transform: rotate(90deg) translateY(-50%);
+            transform-origin: left center;
+        }
+        51% {
+            top: auto;
+            bottom: 0;
+            left: 100%;
+            right: auto;
+            transform: rotate(90deg) translateY(-50%);
+            transform-origin: left center;
+        }
+        52% {
+            top: 100%;
+            bottom: auto;
+            left: auto;
+            right: -1rem;
+            transform: rotate(180deg) translateY(-100%);
+            transform-origin: center top;
+        }
+        75% {
+            top: 100%;
+            bottom: auto;
+            left: auto;
+            right: 100%;
+            transform: rotate(180deg) translateY(-100%);
+            transform-origin: center top;
+        }
+        76% {
+            top: auto;
+            bottom: 0;
+            left: auto;
+            right: 100%;
+            transform: rotate(270deg) translateY(-50%);
+            transform-origin: right center;
+        }
+        100% {
+            top: auto;
+            bottom: 100%;
+            left: auto;
+            right: 100%;
+            transform: rotate(270deg) translateY(-50%);
+            transform-origin: right center;
+        }
+        }
+        .result{
+            background-color: #fff;
+            padding: 10px 100px 10px 0px;
+            border-radius: 10px;
+            height: 520px;
+            width: 70%;
+            position: relative;
+            top: -150px;
+            left: 345px;
+        }
+        #petp1{
+            position:relative;
+            left:50px;
+            width:420px;
+            text-align: justify;font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#"></a>
+                        <span class="icon"><img src="{% static 'animalawarenessApp/images/logo1.png' %}" style="height:60px;"></span>
+                        <!--<span class="title"><h2>Brand Name</h2></span>-->
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdashboard' %}">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title dashboard"><h2>Home</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'usersearchview' %}">
+                        <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="title modifications"><h2>Search</h2></span>
+                        <!--<ul>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Petshop</h3></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Dashboard_Admin_ResetPwd.php">
+                                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <span class="subtitle"><h3>Veterinarian</h3></span>
+                                </a>
+                            </li>
+                        </ul>-->
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{% url 'userprogramview' %}">
+                        <span class="icon"><i class="fa fa-paw" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Program</h2></span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{% url 'userorganisationview' %}">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Organisations</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userdonationview' %}">
+                        <span class="icon"><i class="fa fa-inr" aria-hidden="true" style="font-size:25px;"></i></span>
+                        <span class="title pwdmenu"><h2>Donation</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'userfeedbackview' %}">
+                        <span class="icon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                        <span class="title pwdmenu"><h2>Feedback</h2></span>
+                    </a>
+                </li>
+                <li>
+                <a href="#" id="logout" >
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title logout"><h2>Logout</h2></span>
+                </a>
+                </li> 
+            </ul>
+        </div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu();"></div>
+				<!--<div class="search">
+					<label>
+						<input type="text" placeholder="Search here"><i class="fa fa-search" aria-hidden="true"></i>
+					</label>
+				</div>-->										
+			</div>
+		</div>
+        <div class="" style="position: relative;left: 330px;color:#174e1791; top:100px;text-decoration: none;">
+            <a href="{% url 'userdashboard' %}" style="text-decoration: none;">  >DASHBOARD / </a><a href="" style="text-decoration: none;">SEARCH</a>
+        </div>
+        <div class="wrapper">  
+            <form method="post">
+                {% csrf_token %}
+            <div class="btn btn--bolt">
+                <span class=btn-icon><i class="fa fa-paw fa-2x"></i></span>
+                <span class="btn-topFakeBorders"></span>
+                <div class="btn-bottomAnim btn-anim"></div>
+                <div class="btn-sideAnim btn-anim"></div>
+                <div class="btn-topAnim btn-anim"></div>
+                <span class="btn-content petshop" style="text-decoration:none;">
+                    PetShop<br/><input type="submit" name="petsubmit" value="Click Me" style="position: relative;border-radius: 5px;padding:5px;border:1px solid #b2b2b2;"><br/>
+               </span>         
+            </div>
+            
+            <div class="btn btn--bolt">
+                <span class=btn-icon><i class="fa fa-heartbeat fa-2x"></i></span>
+                <span class="btn-topFakeBorders"></span>
+                <div class="btn-bottomAnim btn-anim"></div>
+                <div class="btn-sideAnim btn-anim"></div>
+                <div class="btn-topAnim btn-anim"></div>
+                <span class="btn-content veterinarian" style="text-decoration:none;">
+                    Veterinarian<br/><input type="submit" name="vetsubmit" value="Click Me" style="position: relative;border-radius: 5px;padding:5px;border:1px solid #b2b2b2;">
+                </span>
+            </div>
+        </form>
+        
+        </div>
+        
+        <div class="result">
+            <p id="petp1" style="display:block;position:relative;color:#333;"> 
+                <table border=2 style="width:50%;">
+                    
+                {% if result %}
+                {% for item in result %} 
+                <tr>               
+                    <td>{{ item }}</td> 
+                </tr>                   
+                {% endfor %}
+                {% endif %}
+                    
+                </table>
+                <!-- {{result}} -->
+            </p>
+        </div>
+        <!-- <p id="petp" style="display: inline-table;
+                            color: #333;
+                            position: relative;">
+                    
+            <iframe src="searchresult_petshop2.html" title="File"></iframe>
+            --{% for i in index %}
+            {{i}}
+            {% endfor %}
+            -- {{content.value}} 
+            <iframe id="serviceFrameSend" src="{% url 'searchresult_petshop2' %}" width="1000" height="1000"  frameborder="0" >
+            </iframe>
+        </p> -->
+        <!--
+        <table>
+            <tr>
+                <td>
+                    {% if result %}
+                    {{result}}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    -->
+    </div>
+
+    <!--Script-->
+    <script>
+        /*var result = {{result}};
+        function petfun() {
+            document.getElementById("petp").innerHTML = $result;
+        }*/
+    </script>
+    <script>/*src="../Mini Project/JS/app.js"*/
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener('click',() => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener('click',() => {
+            container.classList.remove("sign-up-mode");
+        });
+     </script>
+    
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        
+        
+        //sessionStorage.setItem("", "Shrek");					
+        
+		//Toggle
+		function toggleMenu()
+		{
+			let toggle = document.querySelector('.toggle');
+			let navigation = document.querySelector('.navigation');
+			let main = document.querySelector('.main');
+			toggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+    </script>
+     <script>
+        document.getElementById("logout").addEventListener("click",show);
+        function show()
+        {
+            var ans=confirm("Do you want to logout?");
+            if(ans)
+                window.location.replace("{% url 'indexview' %}");
+            else
+            {}
+        }
+    </script>
+</body>
+{% endblock content %}
+</html>
+
+
+<!--https://www.geeksforgeeks.org/print-the-contents-of-a-div-element-using-javascript/-->
